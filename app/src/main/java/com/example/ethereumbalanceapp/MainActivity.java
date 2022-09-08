@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_checkBalance, btn_showNonceTransaction, btn_checkSingleTransaction;
     EditText et_dataInput, et_transactionInput;
-    ListView lv_transactionReports;
     public static final String et_data = "";
     public static final String et_single_transaction = "";
 
