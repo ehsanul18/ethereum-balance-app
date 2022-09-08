@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Please Enter Blockchain Address">
+    </TextView>
+    <EditText
+        android:id="@+id/et_dataInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:hint="Ethereum Blockchain Public address"
+        android:inputType="text">
+
+    </EditText>
+    <HorizontalScrollView
+        android:layout_margin="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_checkBalance"
+                android:text="check balance"
+                android:textSize="12sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </Button>
+            <Button
+                android:id="@+id/btn_NonceTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:padding="6dp"
+                android:text="nonce and transaction details"
+                android:textSize="12sp">
+            </Button>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:text="Please Enter Transaction Hash">
+
+    </TextView>
+    <EditText
+        android:id="@+id/et_transactionInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:hint="Transaction Hash"
+        android:inputType="text">
+    </EditText>
+    <Button
+        android:id="@+id/btn_CheckSingleTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:padding="6dp"
+        android:text="Check Single transaction"
+        android:textSize="12sp">
+    </Button>
+</LinearLayout>
