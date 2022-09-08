@@ -19,7 +19,6 @@ public class BlockchainService {
     public static final String QUERY_TO_CHECK_NONCE_TRANSACTION = "https://api.etherscan.io/api?module=account&action=txlist&address=";
     public static final String QUERY_TO_CHECK_SINGLE_TRANSACTION = "https://api.etherscan.io/api?module=account&action=txlistinternal&txhash=";
 
-
     Context context;
     String balance;
 
@@ -74,13 +73,9 @@ public class BlockchainService {
 
                 try {
                     JSONArray transaction_array = response.getJSONArray("result");
-
-
-
                     for (int i = 0; i < transaction_array.length(); i++) {
                         NonceTransactionModel transactionModel = new NonceTransactionModel();
                         JSONObject transaction_parameter = (JSONObject) transaction_array.get(i);
-
                         transactionModel.setBlockNumber(transaction_parameter.getString("blockNumber"));
                         transactionModel.setNonce(transaction_parameter.getString("nonce"));
                         transactionModel.setFrom(transaction_parameter.getString("from"));
@@ -92,9 +87,7 @@ public class BlockchainService {
                         transactionModel.setContractAddress(transaction_parameter.getString("contractAddress"));
                         nonceTransactionModels.add(transactionModel);
                     }
-
                     getNonceTransactionByAddress.onResponse(nonceTransactionModels);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -105,7 +98,6 @@ public class BlockchainService {
                 getNonceTransactionByAddress.onError("Something went wrong while retrieving multiple transactions!");
             }
         });
-
         MySingleton.getInstance(context).addToRequestQueue(request);
     }
 
@@ -127,11 +119,8 @@ public class BlockchainService {
 
                 try {
                     JSONArray transaction_array = response.getJSONArray("result");
-
-
                     SingleTransactionModel transactionModel = new SingleTransactionModel();
                     JSONObject transaction_parameter = (JSONObject) transaction_array.get(0);
-
                     transactionModel.setBlockNumber(transaction_parameter.getString("blockNumber"));
                     transactionModel.setValue(transaction_parameter.getString("value"));
                     transactionModel.setFrom(transaction_parameter.getString("from"));
@@ -140,9 +129,7 @@ public class BlockchainService {
                     transactionModel.setGasUsed(transaction_parameter.getString("gasUsed"));
                     transactionModel.setContractAddress(transaction_parameter.getString("contractAddress"));
                     singleTransactionModels.add(transactionModel);
-
                     getSingleTransactionByHashResponse.onResponse(singleTransactionModels);
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -153,7 +140,6 @@ public class BlockchainService {
                 getSingleTransactionByHashResponse.onError("Something went wrong while retrieving single transaction!");
             }
         });
-
         MySingleton.getInstance(context).addToRequestQueue(request);
     }
 }

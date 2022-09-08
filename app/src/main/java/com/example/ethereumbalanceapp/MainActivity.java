@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     EditText et_dataInput, et_transactionInput;
     ListView lv_transactionReports;
     public static final String et_data = "";
+    public static final String et_single_transaction = "";
 
 
     @Override
@@ -36,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         et_dataInput = findViewById(R.id.et_dataInput);
         et_transactionInput = findViewById(R.id.et_transactionInput);
 
-        lv_transactionReports = findViewById(R.id.lv_transactionReports);
 
 
         BlockchainService blockchainService = new BlockchainService(MainActivity.this);
@@ -66,18 +63,6 @@ public class MainActivity extends AppCompatActivity {
         btn_showNonceTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                blockchainService.getNonceTransactionByAddress(et_dataInput.getText().toString(), new BlockchainService.GetNonceTransactionByAddressResponse() {
-//                    @Override
-//                    public void onError(String message) {
-//                        Toast.makeText(MainActivity.this,  message , Toast.LENGTH_SHORT).show();
-//                    }
-//                    @Override
-//                    public void onResponse(List<NonceTransactionModel> nonceTransactionModels) {
-//                        ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, nonceTransactionModels);
-//                        lv_transactionReports.setAdapter(arrayAdapter);
-//                    }
-//                });
-
                 Intent intent = new Intent(MainActivity.this, ListViewTransaction.class);
                 String message = et_dataInput.getText().toString();
                 intent.putExtra(et_data, message);
@@ -88,21 +73,9 @@ public class MainActivity extends AppCompatActivity {
         btn_checkSingleTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                blockchainService.getSingleTransactionByHash(et_transactionInput.getText().toString(), new BlockchainService.GetSingleTransactionByHashResponse() {
-//                    @Override
-//                    public void onError(String message) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onResponse(List<SingleTransactionModel> nonceTransactionModels) {
-//                        ArrayAdapter arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, nonceTransactionModels);
-//                        lv_transactionReports.setAdapter(arrayAdapter);
-//                    }
-//                });
                 Intent intent = new Intent(MainActivity.this, ListViewSingleTransaction.class);
                 String message = et_transactionInput.getText().toString();
-                intent.putExtra(et_data, message);
+                intent.putExtra(et_single_transaction, message);
                 startActivity(intent);
             }
         });
