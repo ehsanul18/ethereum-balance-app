@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         calc = calc.divide(ten);
                         String result = String.valueOf(calc);
                         Toast.makeText(MainActivity.this, "Current balance is " + result + " ETH", Toast.LENGTH_LONG).show();
-                        //0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe
                     }
                 });
             }
