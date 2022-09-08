@@ -19,7 +19,7 @@ Transaction Hash example - 0x40eb908387324f2b575b4879cd9d7188f69c8fc9d87c901b9e2
 
 ## Notable Features
 * Check balance in ETH when public blockchain address given
-* Check transaction reports when public blockchain address given
+* Check transaction reports containing nonce, block number and other parameters when public blockchain address given
 * Check list of internal transactions within a transaction when transaction hash given
 
 ## Android environment
