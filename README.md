@@ -2,6 +2,7 @@
 
 ## API Documentation
 https://docs.etherscan.io/
+API calls - https://docs.etherscan.io/api-endpoints/accounts
 
 ## API
 The API I used to check balance is 
