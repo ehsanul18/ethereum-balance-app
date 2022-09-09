@@ -1,7 +1,7 @@
 # Ethereum Balance App
 
 ## API Documentation
-https://docs.etherscan.io/
+https://docs.etherscan.io/ </br>
 API calls - https://docs.etherscan.io/api-endpoints/accounts
 
 ## API
